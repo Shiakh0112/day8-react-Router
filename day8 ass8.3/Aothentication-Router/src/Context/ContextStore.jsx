@@ -17,6 +17,11 @@ export const RouterProvider = ({ children }) => {
   const handleRemoveFromCart = (ItemId) => {
     setCart((prev) => ({ ...prev, [ItemId]: prev[ItemId] - 1 }));
   };
+  let [isLogged, setIsLogged] = useState({
+    isLogged: false, // Update this value to reflect your login status
+    user: "",
+  });
+
   let obj = {
     cart,
     setCart,
@@ -24,6 +29,8 @@ export const RouterProvider = ({ children }) => {
     handleRemoveFromCart,
     food_list,
     assets,
+    isLogged,
+    setIsLogged,
   };
   return (
     <RouterContext.Provider value={obj}>{children}</RouterContext.Provider>
